@@ -4,7 +4,7 @@ set hlsearch
 set backspace=indent,eol,start
 set tabstop=4
 set shiftwidth=4
-autocmd Filetype python setlocal expandtab
+autocmd Filetype python,php setlocal expandtab
 set autoindent
 syntax on
 
