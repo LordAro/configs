@@ -3,6 +3,8 @@
 	email = charlespigott@googlemail.com
 [push]
 	default = simple
+[color]
+	ui = auto
 [core]
 	excludesfile = ~/.gitignore_global
 [alias]
