@@ -2,10 +2,11 @@
 	name = Charles Pigott
 	email = charlespigott@googlemail.com
 [push]
-	default = simple
+	default = matching
 [color]
 	ui = auto
 [core]
 	excludesfile = ~/.gitignore_global
+	autocrlf = true
 [alias]
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
