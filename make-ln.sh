@@ -1,14 +1,14 @@
-#!/usr/bin/sh
+#!/usr/bin/env sh
 
 HOMEFILES="gitconfig vimrc"
 
 LN_CMD="ln -s"
-if [[ $1 == "-f" ]]; then
+if [ "$1" = "-f" ]; then
     echo "Forcing..."
-    LN_CMD+=" -f"
+    LN_CMD="$LN_CMD -f"
 fi
 
-dir=$(pwd)
+dir=`pwd`
 
 for file in $HOMEFILES; do
     $LN_CMD $dir/config/$file $HOME/.$file
