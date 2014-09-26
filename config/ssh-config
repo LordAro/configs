@@ -5,15 +5,20 @@ Host csteach0
     HostName csteach0.york.ac.uk
     User cp872
 
-Host *
-    User lordaro
-
 Host runciman
     HostName runciman.hacksoc.org
+    User lordaro
 
 Host klaxon
     HostName klaxon.hacksoc.org
+    User lordaro
 
 Host urybsod
     HostName urybsod.york.ac.uk
+    ProxyCommand ssh csteach0 nc %h %p
+    User lordaro
 
+Host ury
+    HostName ury.york.ac.uk
+    ProxyCommand ssh csteach0 nc %h %p
+    User lordaro
