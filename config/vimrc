@@ -1,3 +1,5 @@
+set nocompatible
+
 " General
 set history=700
 filetype plugin on
@@ -31,7 +33,6 @@ set magic
 set showmatch
 set mat=2
 
-
 " Colours/Fonts
 syntax enable
 colorscheme desert
@@ -52,13 +53,19 @@ set nobackup
 set nowb
 set noswapfile
 
+if v:version >= 703
+    set undodir=~/.vim/undofiles
+    set undofile
+
+    set colorcolumn=+1
+endif
+
 " Tabs!
-autocmd Filetype python,php,javascript setlocal expandtab
+autocmd Filetype python,php,javascript,yaml setlocal expandtab
 set smarttab
 set shiftwidth=4
 set tabstop=4
-autocmd Filetype javascript setlocal tabstop=2
-autocmd Filetype javascript setlocal shiftwidth=2
+autocmd Filetype javascript,yaml setlocal tabstop=2 shiftwidth=2
 
 set lbr
 set tw=500
@@ -88,7 +95,7 @@ set viminfo^=%
 " Status
 set laststatus=2
 
-set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l
+set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %c,%l/%L\ %P
 
 " Helper functions
 
