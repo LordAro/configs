@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-HOMEFILES="gitconfig vimrc"
+HOMEFILES="gitconfig vimrc bashrc"
 
 LN_CMD="ln -s"
 if [ "$1" = "-f" ]; then
