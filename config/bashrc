@@ -130,15 +130,23 @@ else
     SU=${BCyan}         # User is normal (well ... most of us are).
 fi
 
-NCPU=$(grep -c 'processor' /proc/cpuinfo)    # Number of CPUs
-SLOAD=$(( 100*${NCPU} ))        # Small load
-MLOAD=$(( 200*${NCPU} ))        # Medium load
-XLOAD=$(( 400*${NCPU} ))        # Xlarge load
+if [ -f /proc/cpuinfo ]; then
+    NCPU=$(grep -c 'processor' /proc/cpuinfo)    # Number of CPUs
+else
+    NCPU=$(sysctl hw.ncpu | cut -d" " -f2)
+fi
+SLOAD=$(( 100 * ${NCPU} ))        # Small load
+MLOAD=$(( 200 * ${NCPU} ))        # Medium load
+XLOAD=$(( 400 * ${NCPU} ))        # Xlarge load
 
 # Returns system load as percentage, i.e., '40' rather than '0.40)'.
 function load()
 {
-    local SYSLOAD=$(cut -d " " -f1 /proc/loadavg | tr -d '.')
+	if [ -f /proc/loadavg ]; then
+        local SYSLOAD=$(cut -d " " -f1 /proc/loadavg | tr -d '.')
+    else
+        local SYSLOAD=$(sysctl vm.loadavg | cut -d " " -f3 | tr -d ".")
+    fi
     # System load of the current host.
     echo $((10#$SYSLOAD))       # Convert to decimal.
 }
