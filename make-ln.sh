@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-HOMEFILES="gitconfig vimrc bashrc bash_prompt"
+HOMEFILES="gitconfig vimrc bashrc bash_profile"
 
 LN_CMD="ln -s"
 if [ "$1" = "-f" ]; then
