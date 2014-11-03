@@ -22,3 +22,8 @@ Host ury
     HostName ury.york.ac.uk
     ProxyCommand ssh csteach0 nc %h %p
     User lordaro
+
+Host uryfs1
+    HostName uryfs1.york.ac.uk
+    ProxyCommand ssh csteach0 nc %h %p
+    User lordaro
