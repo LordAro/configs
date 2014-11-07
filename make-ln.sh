@@ -15,4 +15,8 @@ for file in $HOMEFILES; do
 done
 
 mkdir -p $HOME/.ssh
-$LN_CMD $dir/config/ssh-config $HOME/.ssh/config
+if [ -z "`grep york /etc/resolv.conf`" ]; then
+    $LN_CMD $dir/config/ssh-config $HOME/.ssh/config
+else
+    $LN_CMD $dir/config/ssh-config-yk $HOME/.ssh/config
+fi

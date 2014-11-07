@@ -1,0 +1,22 @@
+Host *
+	ServerAliveInterval 60
+
+Host csteach0
+    HostName csteach0.york.ac.uk
+    User cp872
+
+Host runciman
+    HostName runciman.hacksoc.org
+    User lordaro
+
+Host klaxon
+    HostName klaxon.hacksoc.org
+    User lordaro
+
+Host urybsod
+    HostName urybsod.york.ac.uk
+    User lordaro
+
+Host ury
+    HostName ury.york.ac.uk
+    User lordaro
