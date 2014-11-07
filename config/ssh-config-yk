@@ -20,3 +20,11 @@ Host urybsod
 Host ury
     HostName ury.york.ac.uk
     User lordaro
+
+Host uryfs1
+    HostName uryfs1.york.ac.uk
+    User lordaro
+
+Host jukebox
+    Hostname jukebox.york.ac.uk
+    User lordaro

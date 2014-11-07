@@ -27,3 +27,8 @@ Host uryfs1
     HostName uryfs1.york.ac.uk
     ProxyCommand ssh csteach0 nc %h %p
     User lordaro
+
+Host jukebox
+    Hostname jukebox.york.ac.uk
+    ProxyCommand ssh csteach0 nc %h %p
+    User lordaro
