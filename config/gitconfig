@@ -1,3 +1,6 @@
+[core]
+	excludesfile = ~/.gitignore_global
+	editor = vim
 [user]
 	name = Charles Pigott
 	email = charlespigott@googlemail.com
@@ -5,7 +8,5 @@
 	default = matching
 [color]
 	ui = auto
-[core]
-	excludesfile = ~/.gitignore_global
 [alias]
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
