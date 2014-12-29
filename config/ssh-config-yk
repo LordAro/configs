@@ -5,6 +5,10 @@ Host csteach0
     HostName csteach0.york.ac.uk
     User cp872
 
+Host csteach1
+    HostName csteach1.york.ac.uk
+    User cp872
+
 Host runciman
     HostName runciman.hacksoc.org
     User lordaro
