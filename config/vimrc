@@ -61,7 +61,7 @@ if v:version >= 703
 endif
 
 " Tabs!
-autocmd Filetype python,php,javascript,yaml setlocal expandtab
+autocmd Filetype python,php,javascript,yaml,lua setlocal expandtab
 set smarttab
 set shiftwidth=4
 set tabstop=4
@@ -112,5 +112,5 @@ fun! <SID>StripTrailingWhitespaces()
     %s/\s\+$//e
     call cursor(l, c)
 endfun
-autocmd FileType c,cpp,java,javascript,php,ruby,python autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
+autocmd FileType c,cpp,java,javascript,php,ruby,python,lua autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
 
