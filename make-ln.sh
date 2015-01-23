@@ -1,7 +1,5 @@
 #!/usr/bin/env sh
 
-HOMEFILES="gitconfig vimrc bashrc bash_profile"
-
 LN_CMD="ln -s"
 if [ "$1" = "-f" ]; then
     echo "Forcing..."
@@ -10,9 +8,15 @@ fi
 
 dir=`pwd`
 
-for file in $HOMEFILES; do
+## Actual dot files ##
+
+DOTFILES="gitconfig vimrc vim bashrc bash_profile tmux.conf"
+
+for file in $DOTFILES; do
     $LN_CMD $dir/config/$file $HOME/.$file
 done
+
+## Other files ##
 
 mkdir -p $HOME/.ssh
 if [ -z "`grep york /etc/resolv.conf`" ]; then

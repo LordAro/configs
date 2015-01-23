@@ -1,9 +1,27 @@
+" Initial Vundle stuff
 set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" Required
+Plugin 'gmarik/Vundle.vim'
+
+" GH
+Plugin 'scrooloose/nerdtree'
+
+" Vimscripts
+Plugin 'StripWhiteSpaces'
+
+call vundle#end()
+filetype plugin indent on
+
+" Plugin setup
+let g:strip_trailing_lines = 1
+
 
 " General
 set history=700
-filetype plugin on
-filetype indent on
 set autoread
 
 let mapleader = ","
@@ -105,12 +123,3 @@ function! HasPaste()
     en
     return ''
 endfunction
-
-fun! <SID>StripTrailingWhitespaces()
-    let l = line(".")
-    let c = col(".")
-    %s/\s\+$//e
-    call cursor(l, c)
-endfun
-autocmd FileType c,cpp,java,javascript,php,ruby,python,lua autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
-
