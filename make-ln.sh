@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-LN_CMD="ln -s"
+LN_CMD="ln -T -s"
 if [ "$1" = "-f" ]; then
     echo "Forcing..."
     LN_CMD="$LN_CMD -f"
