@@ -8,6 +8,9 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 " GH
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'editorconfig/editorconfig-vim'
+Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
 
 " Vimscripts
@@ -53,8 +56,8 @@ set mat=2
 
 " Colours/Fonts
 syntax enable
-colorscheme desert
 set background=dark
+colorscheme solarized
 
 if has("gui_running")
     set guioptions-=T

@@ -1,12 +1,35 @@
 [core]
 	excludesfile = ~/.gitignore_global
 	editor = vim
+	whitespace = space-before-tab,-indent-with-non-tab,trailing-space
 [user]
 	name = Charles Pigott
 	email = charlespigott@googlemail.com
 [push]
 	default = matching
+[apply]
+	whitespace = fix
 [color]
-	ui = auto
+	diff = auto
+	status = auto
+	branch = auto
+	ui = true
+[help]
+	autocorrect = 1
 [alias]
+	a = add
+	amend = commit --amend --reuse-message=HEAD
+	ci = commit
+	cam = commit -am
+	cim = commit -m
+	co = checkout
+	d = diff
+	l = log
+	last = log -1 --stat
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
+	r = rebase
+	ri = rebase -i
+	s = status
+	st = status
+	stat = status
+	unstage = reset HEAD --
