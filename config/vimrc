@@ -1,5 +1,6 @@
 " Initial Vundle stuff
 set nocompatible
+set t_Co=16
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -20,7 +21,7 @@ call vundle#end()
 filetype plugin indent on
 
 " Plugin setup
-let g:strip_trailing_lines = 1
+let g:strip_trailing_lines=1
 
 
 " General
@@ -55,8 +56,9 @@ set showmatch
 set mat=2
 
 " Colours/Fonts
-syntax enable
-set background=dark
+syntax on
+set background=dark " dark | light "
+call togglebg#map("<F5>")
 colorscheme solarized
 
 if has("gui_running")
