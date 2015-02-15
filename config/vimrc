@@ -13,6 +13,9 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
+Plugin 'fatih/vim-go'
+Plugin 'scrooloose/syntastic'
+Plugin 'bling/vim-airline'
 
 " Vimscripts
 Plugin 'StripWhiteSpaces'
@@ -23,6 +26,11 @@ filetype plugin indent on
 " Plugin setup
 let g:strip_trailing_lines=1
 
+let g:airline#extensions#whitespace#enabled = 0
+let g:airline#extensions#whitespace#mixed_indent_algo = 1
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_cpp_compiler_options = "-std=c++11"
+let g:syntastic_cpp_no_include_search=1
 
 " General
 set history=700
