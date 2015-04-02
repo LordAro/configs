@@ -1,14 +1,56 @@
 Host *
-	ServerAliveInterval 60
+    ServerAliveInterval 60
+
+# York
+
+Host ssh.york.ac.uk
+    PubKeyAuthentication yes
+    IdentityFile ~/.ssh/id_rsa
+    User cp872
 
 Host csteach0
     HostName csteach0.york.ac.uk
-    ProxyCommand ssh csteach1 nc %h %p
+    ProxyCommand ssh ssh.york.ac.uk -W %h:%p
     User cp872
 
+# Gateway
 Host csteach1
     HostName csteach1.york.ac.uk
     User cp872
+
+# URY
+
+Host urybsod
+    HostName urybsod.york.ac.uk
+    ProxyCommand ssh ssh.york.ac.uk -W %h:%p
+    User lordaro
+
+Host ury
+    HostName ury.york.ac.uk
+    ProxyCommand ssh ssh.york.ac.uk -W %h:%p
+    User lordaro
+
+Host uryfs1
+    HostName uryfs1.york.ac.uk
+    ProxyCommand ssh ssh.york.ac.uk -W %h:%p
+    User lordaro
+
+Host jukebox
+    Hostname jukebox.york.ac.uk
+    ProxyCommand ssh ssh.york.ac.uk -W %h:%p
+    User lordaro
+
+Host uryfw0
+    Hostname uryfw0.york.ac.uk
+    ProxyCommand ssh ssh.york.ac.uk -W %h:%p
+    User lordaro
+
+Host urystv
+    Hostname urystv.york.ac.uk
+    ProxyCommand ssh ssh.york.ac.uk -W %h:%p
+    User lordaro
+
+# Hacksoc
 
 Host runciman
     HostName runciman.hacksoc.org
@@ -16,24 +58,4 @@ Host runciman
 
 Host klaxon
     HostName klaxon.hacksoc.org
-    User lordaro
-
-Host urybsod
-    HostName urybsod.york.ac.uk
-    ProxyCommand ssh csteach1 nc %h %p
-    User lordaro
-
-Host ury
-    HostName ury.york.ac.uk
-    ProxyCommand ssh csteach1 nc %h %p
-    User lordaro
-
-Host uryfs1
-    HostName uryfs1.york.ac.uk
-    ProxyCommand ssh csteach1 nc %h %p
-    User lordaro
-
-Host jukebox
-    Hostname jukebox.york.ac.uk
-    ProxyCommand ssh csteach1 nc %h %p
     User lordaro
