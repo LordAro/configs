@@ -4,8 +4,14 @@ cmd_exists () {
 	return `command -v $1 >/dev/null 2>&1`
 }
 
+PLATFORM=`uname`
 
 LN_CMD="ln -s"
+if [ "$PLATFORM" == 'FreeBSD' ]; then
+	LN_CMD="$LN_CMD -h"
+else
+	LN_CMD="$LN_CMD -T"
+fi
 if [ "$1" = "-f" ]; then
     echo "Forcing..."
     LN_CMD="$LN_CMD -f"
