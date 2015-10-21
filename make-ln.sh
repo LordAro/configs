@@ -5,7 +5,7 @@ cmd_exists () {
 }
 
 
-LN_CMD="ln -T -s"
+LN_CMD="ln -s"
 if [ "$1" = "-f" ]; then
     echo "Forcing..."
     LN_CMD="$LN_CMD -f"
