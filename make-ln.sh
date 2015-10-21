@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 cmd_exists () {
-	return `command -v $1 >/dev/null 2>&1`
+	return command -v $1 >/dev/null 2>&1
 }
 
 PLATFORM=`uname`
