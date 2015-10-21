@@ -34,12 +34,20 @@ filetype plugin indent on
 
 " Plugin setup
 let g:strip_trailing_lines=1
-
+" Airline {{{
 let g:airline#extensions#whitespace#enabled = 0
 let g:airline#extensions#whitespace#mixed_indent_algo = 1
+" }}}
+" CtrlP {{{
+let g:ctrlp_match_window = 'bottom,order:ttb'
+let g:ctrlp_switch_buffer = 0
+let g:ctrlp_working_path_mode = 0
+" }}}
+" Syntastic {{{
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_cpp_compiler_options = "-std=c++11"
 let g:syntastic_cpp_no_include_search=1
+" }}}
 
 " }}}
 " Colours/Fonts {{{
