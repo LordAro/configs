@@ -1,5 +1,10 @@
 #!/usr/bin/env sh
 
+cmd_exists () {
+	return `command -v $1 >/dev/null 2>&1`
+}
+
+
 LN_CMD="ln -T -s"
 if [ "$1" = "-f" ]; then
     echo "Forcing..."
@@ -23,4 +28,9 @@ if [ -z "`grep york /etc/resolv.conf`" ]; then
     $LN_CMD $dir/config/ssh-config $HOME/.ssh/config
 else
     $LN_CMD $dir/config/ssh-config-yk $HOME/.ssh/config
+fi
+
+if cmd_exists xrdb; then
+    $LN_CMD $dir/config/Xresources $HOME/.Xresources
+	xrdb -merge $HOME/.Xresources
 fi

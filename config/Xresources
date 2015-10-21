@@ -1,0 +1,104 @@
+!-------------------------------------------------------------------------------
+! Xft settings
+!-------------------------------------------------------------------------------
+
+Xft.dpi:                    96
+Xft.antialias:              true
+Xft.rgba:                   rgb
+Xft.hinting:                true
+
+!-------------------------------------------------------------------------------
+! URxvt settings
+! Colours lifted from Solarized (http://ethanschoonover.com/solarized)
+! More info at:
+! http://pod.tst.eu/http://cvs.schmorp.de/rxvt-unicode/doc/rxvt.1.pod
+!-------------------------------------------------------------------------------
+
+URxvt.depth:                32
+URxvt.geometry:             90x30
+URxvt.transparent:          false
+URxvt.fading:               0
+! URxvt.urgentOnBell:         true
+! URxvt.visualBell:           true
+URxvt.loginShell:           true
+URxvt.saveLines:            5000
+URxvt.internalBorder:       3
+URxvt.lineSpace:            0
+URxvt*termName:             rxvt-unicode
+
+! Fonts
+URxvt.allow_bold:           false
+! URxvt.font:                 -*-terminus-medium-r-normal-*-12-120-72-72-c-60-iso8859-1
+URxvt*font: xft:Monospace:pixelsize=13,xft:Unifont:pixelsize=13
+URxvt*boldFont: xft:Monospace:pixelsize=13,xft:Unifont:pixelsize=13:style=Bold
+
+! Fix font space
+URxvt*letterSpace: -1
+
+! Scrollbar
+URxvt.scrollStyle:          rxvt
+URxvt.scrollBar:            false
+
+! Perl extensions
+URxvt.perl-ext-common:      default,matcher
+URxvt.matcher.button:       1
+URxvt.urlLauncher:          firefox
+
+! Cursor
+URxvt.cursorBlink:          true
+URxvt.cursorColor:          #657b83
+URxvt.cursorUnderline:      false
+
+! Pointer
+URxvt.pointerBlank:         true
+
+!! euphrasia v2 by bohoomil
+
+! euphrasia fg/bg
+URxvt*background:  #090C19
+URxvt*foreground:  #E6E6E6
+URxvt*cursorColor: #1AAA13
+
+! X.org apps bg/fg
+*background: #D0CECB
+*foreground: #090C19
+
+! black
+*color0:  #222946
+! dark grey
+*color8:  #8C8B89
+
+! red
+*color1:  #B32323
+! bright red
+*color9:  #DC2C2C
+
+! green
+*color2:  #1AAA13
+! bright green
+*color10: #5DCE33
+
+! yellow
+*color3:  #FF9F3E
+! bright yellow
+*color11: #E6CB29
+
+! blue
+*color4:  #4957F3
+! bright blue
+*color12: #4D79FF
+
+! magenta
+*color5:  #BF3E94
+! bright magenta
+*color13: #B641CC
+
+! cyan
+*color6:  #09A5B3
+! bright cyan
+*color14: #3CB6F3
+
+! light grey
+*color7:  #AEAEAE
+! white
+*color15: #DBDDE4
