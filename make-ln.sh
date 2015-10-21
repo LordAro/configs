@@ -7,7 +7,7 @@ cmd_exists () {
 PLATFORM=`uname`
 
 LN_CMD="ln -s"
-if [ "$PLATFORM" == 'FreeBSD' ]; then
+if [ "$PLATFORM" = "FreeBSD" ]; then
 	LN_CMD="$LN_CMD -h"
 else
 	LN_CMD="$LN_CMD -T"
