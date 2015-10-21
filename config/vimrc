@@ -1,6 +1,16 @@
-" Initial Vundle stuff
+" General {{{
 set nocompatible
-set t_Co=16
+set history=700
+set autoread
+
+let mapleader = ","
+let g:mapleader = ","
+nmap <leader>w :w!<cr>
+
+" }}}
+" Plugins {{{
+
+" Initial Vundle stuff
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -9,7 +19,6 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 " GH
-Plugin 'altercation/vim-colors-solarized'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
@@ -32,42 +41,10 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_cpp_compiler_options = "-std=c++11"
 let g:syntastic_cpp_no_include_search=1
 
-" General
-set history=700
-set autoread
-
-let mapleader = ","
-let g:mapleader = ","
-nmap <leader>w :w!<cr>
-
-" UI
-set so=7
-
-set wildmenu
-set wildignore=*.o,*~,*.pyc
-
-set ruler
-set cmdheight=2
-set hid
-set backspace=eol,start,indent
-set whichwrap+=<,>,h,l
-
-set ignorecase
-set smartcase
-set hlsearch
-set incsearch
-
-set lazyredraw
-set magic
-
-set showmatch
-set mat=2
-
-" Colours/Fonts
-syntax on
-set background=dark " dark | light "
-call togglebg#map("<F5>")
-colorscheme solarized
+" }}}
+" Colours/Fonts {{{
+syntax enable
+colorscheme desert
 
 if has("gui_running")
     set guioptions-=T
@@ -79,7 +56,47 @@ endif
 set encoding=utf8
 set ffs=unix,dos,mac
 
-" Files
+" }}}
+" UI {{{
+set so=7
+
+set wildmenu " visual autocomplete for commands
+set wildignore=*.o,*~,*.pyc
+
+set ruler
+set showcmd " Show command in bottom bar
+set cursorline " Show currently selected line
+set cmdheight=2
+set hid
+set backspace=eol,start,indent
+set whichwrap+=<,>,h,l
+
+set lazyredraw " only redraw when need to
+set magic
+
+set mat=2
+
+" }}}
+" Searching {{{
+set ignorecase
+set smartcase
+set incsearch " search as characters entered
+set hlsearch " highlight results
+set showmatch " highlight matching [{()}]
+" turn off search highlight
+nnoremap <leader>/ :nohlsearch<CR>
+
+vnoremap <silent> # :call VisualSelection('b')<CR>
+
+" }}}
+" Folding {{{
+set foldenable
+set foldlevelstart=10 " open most folds by default
+set foldnestmax=10
+set foldmethod=indent " fold based on indent level
+
+" }}}
+" Files {{{
 set nobackup
 set nowb
 set noswapfile
@@ -91,44 +108,39 @@ if v:version >= 703
     set colorcolumn=+1
 endif
 
-" Tabs!
-autocmd Filetype python,php,javascript,yaml,lua setlocal expandtab
-set smarttab
+" }}}
+" Identing {{{
+set smarttab " Tabs are best indent
 set shiftwidth=4
 set tabstop=4
-autocmd Filetype javascript,yaml setlocal tabstop=2 shiftwidth=2
-
+set softtabstop=4
 set lbr
 set tw=500
 set autoindent
 set smartindent
 
-" Visual mode
-vnoremap <silent> * :call VisualSelection('f')<CR>
-vnoremap <silent> # :call VisualSelection('b')<CR>
+" Settings for other filetypes
+augroup configgroup
+	autocmd Filetype javascript,yaml setlocal tabstop=2 shiftwidth=2 expandtab
+	autocmd Filetype lua setlocal expandtab
+	autocmd Filetype php setlocal expandtab
+	autocmd Filetype python setlocal expandtab
+	autocmd Filetype yaml setlocal tabstop=2 shiftwidth=2 expandtab
+augroup END
 
-" Moving around
-map <space> /
+" }}}
+" Movement {{{
 map <c-space> ?
-map <silent> <leader><cr> :noh<cr>
 
 map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 
-autocmd BufReadPost *
-     \ if line("'\"") > 0 && line("'\"") <= line("$") |
-     \   exe "normal! g`\"" |
-     \ endif
-set viminfo^=%
-
-" Status
+" }}}
+" Statusline {{{
 set laststatus=2
-
 set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %c,%l/%L\ %P
-
-" Helper functions
 
 function! HasPaste()
     if &paste
@@ -136,3 +148,6 @@ function! HasPaste()
     en
     return ''
 endfunction
+
+" }}}
+" vim:foldmethod=marker:foldlevel=0
