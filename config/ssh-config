@@ -1,6 +1,11 @@
 Host *
     ServerAliveInterval 60
 
+# Bytemark
+
+Host *.bytemark.co.uk Host *.dh *.sh *.ns *.vm *.vmh *.vmadmin
+	User charles
+
 # York
 
 Host ssh.york.ac.uk
