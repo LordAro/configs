@@ -1,62 +1,31 @@
-!-------------------------------------------------------------------------------
-! Xft settings
-!-------------------------------------------------------------------------------
+! urxvt
+URxvt*buffered: true
+URxvt*cursorBlink: true
+URxvt*underlineColor: yellow
+URxvt*font: xft:Source Code Pro for Powerline:size=10,xft:Source Code Pro:size=10,xft:Droid Sans Mono,xft:DejaVu Sans Mono,xft:Code2000,xft:Symbola,xft:Unifont,xft:Jomolhari
+URxvt.antialias: true
+URxvt.hinting: true
+URxvt.hintstyle: hintslight
+URxvt.letterSpace: 0
+URxvt*depth: 32
+URxvt*borderless: 1
+URxvt*scrollBar: false
+URxvt*loginShell: true
+Urxvt*secondaryScroll: true
+URxvt*saveLines: 5000
 
-Xft.dpi:                    96
-Xft.antialias:              true
-Xft.rgba:                   rgb
-Xft.hinting:                true
-
-!-------------------------------------------------------------------------------
-! URxvt settings
-! Colours lifted from Solarized (http://ethanschoonover.com/solarized)
-! More info at:
-! http://pod.tst.eu/http://cvs.schmorp.de/rxvt-unicode/doc/rxvt.1.pod
-!-------------------------------------------------------------------------------
-
-URxvt.depth:                32
-URxvt.geometry:             90x30
-URxvt.transparent:          false
-URxvt.fading:               0
-! URxvt.urgentOnBell:         true
-! URxvt.visualBell:           true
-URxvt.loginShell:           true
-URxvt.saveLines:            5000
-URxvt.internalBorder:       3
-URxvt.lineSpace:            0
-
-! Fonts
-URxvt.allow_bold:           false
-! URxvt.font:                 -*-terminus-medium-r-normal-*-12-120-72-72-c-60-iso8859-1
-URxvt*font: xft:Monospace:pixelsize=13,xft:Unifont:pixelsize=13
-URxvt*boldFont: xft:Monospace:pixelsize=13,xft:Unifont:pixelsize=13:style=Bold
-
-! Fix font space
-URxvt*letterSpace: -1
-
-! Scrollbar
-URxvt.scrollStyle:          rxvt
-URxvt.scrollBar:            false
-
-! Perl extensions
-URxvt.perl-ext-common:      default,matcher
-URxvt.matcher.button:       1
-URxvt.urlLauncher:          firefox
-
-! Cursor
-URxvt.cursorBlink:          true
-URxvt.cursorColor:          #657b83
-URxvt.cursorUnderline:      false
-
-! Pointer
-URxvt.pointerBlank:         true
+! URL handlers
+URxvt.perl-ext:             default,url-select
+URxvt.keysym.C-i:           perl:url-select:select_next
+URxvt.url-select.launcher:  /usr/bin/xdg-open
+URxvt.url-select.underline: true
 
 !! euphrasia v2 by bohoomil
 
 ! euphrasia fg/bg
 URxvt*background:  #090C19
 URxvt*foreground:  #E6E6E6
-URxvt*cursorColor: #1AAA13
+*cursorColor:      #1AAA13
 
 ! X.org apps bg/fg
 *background: #D0CECB
@@ -88,9 +57,9 @@ URxvt*cursorColor: #1AAA13
 *color12: #4D79FF
 
 ! magenta
-*color5:  #BF3E94
+*color5:	#BF3E94
 ! bright magenta
-*color13: #B641CC
+*color13:	#B641CC
 
 ! cyan
 *color6:  #09A5B3
