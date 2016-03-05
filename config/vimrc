@@ -10,26 +10,19 @@ nmap <leader>w :w!<cr>
 " }}}
 " Plugins {{{
 
+call plug#begin('~/.vim/plugged')
 " Initial Vundle stuff
-filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" Required
-Plugin 'gmarik/Vundle.vim'
 
 " GH
-Plugin 'editorconfig/editorconfig-vim'
-Plugin 'kien/ctrlp.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'fatih/vim-go'
-Plugin 'scrooloose/syntastic'
-Plugin 'bling/vim-airline'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'kien/ctrlp.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'fatih/vim-go'
+Plug 'scrooloose/syntastic'
+Plug 'bling/vim-airline'
+Plug 'gagoar/StripWhiteSpaces'
 
-" Vimscripts
-Plugin 'StripWhiteSpaces'
-
-call vundle#end()
+call plug#end()
 filetype plugin indent on
 
 " Plugin setup
