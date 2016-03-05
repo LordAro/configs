@@ -12,6 +12,7 @@ if [ -f "$HOME/.bashrc_custom" ]; then
 	. $HOME/.bashrc_custom
 fi
 
+export PATH=$HOME/bin:$PATH
 
 ### Display magicks ###
 

@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/bin/sh
 
 cmd_exists () {
 	return command -v $1 >/dev/null 2>&1
@@ -40,3 +40,5 @@ if cmd_exists xrdb; then
     $LN_CMD $dir/config/Xresources $HOME/.Xresources
 	xrdb -merge $HOME/.Xresources
 fi
+
+$LN_CMD $dir/bin $HOME/bin
