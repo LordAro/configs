@@ -8,6 +8,9 @@ fi
 ### Exports ###
 shopt -s checkwinsize
 
+if [ -f "$HOME/.bashrc_custom" ]; then
+	. $HOME/.bashrc_custom
+fi
 
 
 ### Display magicks ###
