@@ -3,7 +3,7 @@ Host *
 
 # Bytemark
 
-Host *.bytemark.co.uk Host *.dh *.sh *.ns *.vm *.vmh *.vmadmin
+Host *.bytemark.co.uk Host *.dh *.sh *.ns *.vm *.vmh *.vmadmin *.managed *.yrk *.man
 	User charles
 
 # York
