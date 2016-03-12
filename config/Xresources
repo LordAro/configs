@@ -15,10 +15,10 @@ Urxvt*secondaryScroll: true
 URxvt*saveLines: 5000
 
 ! URL handlers
-URxvt.perl-ext:             default,url-select
-URxvt.keysym.C-i:           perl:url-select:select_next
-URxvt.url-select.launcher:  /usr/bin/xdg-open
-URxvt.url-select.underline: true
+URxvt.perl-ext:          default,matcher
+URxvt.keysym.C-i:        matcher:select
+URxvt.url-launcher:      xdg-open
+URxvt.matcher.underline: true
 
 !! euphrasia v2 by bohoomil
 
