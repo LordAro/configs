@@ -124,7 +124,8 @@ set smartindent
 
 " Settings for other filetypes
 augroup configgroup
-	autocmd Filetype javascript,yaml setlocal tabstop=2 shiftwidth=2 expandtab
+	autocmd Filetype javascript setlocal tabstop=2 shiftwidth=2 expandtab
+	autocmd Filetype json setlocal tabstop=2 shiftwidth=2 expandtab
 	autocmd Filetype lua setlocal expandtab
 	autocmd Filetype php setlocal expandtab
 	autocmd Filetype python setlocal expandtab
