@@ -30,6 +30,7 @@ filetype plugin indent on
 " Airline {{{
 let g:airline#extensions#whitespace#enabled = 0
 let g:airline#extensions#whitespace#mixed_indent_algo = 1
+let g:airline_powerline_fonts = 1
 " }}}
 " CtrlP {{{
 let g:ctrlp_match_window = 'bottom,order:ttb'
