@@ -80,6 +80,9 @@ set magic
 
 set mat=2
 
+set number
+set relativenumber
+
 " }}}
 " Searching {{{
 set ignorecase
