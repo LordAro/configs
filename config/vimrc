@@ -11,9 +11,7 @@ nmap <leader>w :w!<cr>
 " Plugins {{{
 
 call plug#begin('~/.vim/plugged')
-" Initial Vundle stuff
 
-" GH
 Plug 'editorconfig/editorconfig-vim'
 Plug 'kien/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
@@ -39,9 +37,11 @@ let g:ctrlp_working_path_mode = 0
 " }}}
 " Syntastic {{{
 let g:syntastic_always_populate_loc_list = 1
+
 let g:syntastic_cpp_compiler_options = "-std=c++14"
-let g:syntastic_cpp_no_include_search=1
+let g:syntastic_cpp_no_include_search = 1
 " }}}
+let g:go_list_type = "quickfix"
 
 autocmd BufWritePre * StripWhitespace
 
@@ -128,6 +128,7 @@ set smartindent
 
 " Settings for other filetypes
 augroup configgroup
+	" Golang gets set by vim-go
 	autocmd Filetype javascript setlocal tabstop=2 shiftwidth=2 expandtab
 	autocmd Filetype json setlocal tabstop=2 shiftwidth=2 expandtab
 	autocmd Filetype lua setlocal expandtab
