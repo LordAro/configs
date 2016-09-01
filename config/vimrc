@@ -20,6 +20,8 @@ Plug 'scrooloose/syntastic'
 Plug 'bling/vim-airline'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'tpope/vim-fugitive'
+Plug 'pearofducks/ansible-vim'
+Plug 'bogado/file-line'
 
 call plug#end()
 filetype plugin indent on
@@ -40,6 +42,36 @@ let g:syntastic_always_populate_loc_list = 1
 
 let g:syntastic_cpp_compiler_options = "-std=c++14"
 let g:syntastic_cpp_no_include_search = 1
+
+let g:syntastic_python2_python_exe = "python2"
+let g:syntastic_python3_python_exe = "python3"
+let g:syntastic_python_default_version = g:syntastic_python3_python_exe
+let g:syntastic_python2_checkers = ['python', 'pyflakes', 'pylint']
+let g:syntastic_python3_checkers = ['python', 'pyflakes3', 'pylint3']
+
+" Syntastic horribleness to make it detect python version properly based on shebang
+function! Parse_Python_Shebang()
+    let line = getline(1)
+    if line =~# "\m^#!\s*[^ \t]*\<python2\=\>"
+        let g:syntastic_python_python_exec = g:syntastic_python2_python_exe
+        let g:syntastic_python_checkers = g:syntastic_python2_checkers
+    elseif line =~# "\m^#!\s*[^ \t]*\<python3\>"
+        let g:syntastic_python_python_exec = g:syntastic_python3_python_exe
+        let g:syntastic_python_checkers = g:syntastic_python3_checkers
+    else
+        let g:syntastic_python_python_exec = g:syntastic_python_default_version
+        let g:syntastic_python_checkers = g:syntastic_python_default_version =~# "\<python3$" ?
+            \ g:syntastic_python3_checkers : g:syntastic_python2_checkers
+    endif
+endfunction
+
+command! SyntasticPython2 let g:syntastic_python_python_exec = g:syntastic_python2_python_exe |
+    \ let g:syntastic_python_checkers = g:syntastic_python2_checkers
+command! SyntasticPython3 let g:syntastic_python_python_exec = g:syntastic_python3_python_exe |
+    \ let g:syntastic_python_checkers = g:syntastic_python3_checkers
+
+autocmd BufWinEnter *.py call Parse_Python_Shebang()
+
 " }}}
 let g:go_list_type = "quickfix"
 
@@ -130,6 +162,8 @@ set smartindent
 augroup configgroup
 	" Golang gets set by vim-go
 	autocmd Filetype cucumber setlocal tabstop=2 shiftwidth=2 expandtab
+	autocmd Filetype html setlocal tabstop=2 shiftwidth=2 expandtab
+	autocmd Filetype javascript setlocal tabstop=2 shiftwidth=2 expandtab
 	autocmd Filetype json setlocal tabstop=2 shiftwidth=2 expandtab
 	autocmd Filetype lua setlocal expandtab
 	autocmd Filetype php setlocal expandtab
