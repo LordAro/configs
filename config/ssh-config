@@ -13,6 +13,9 @@ Host ssh.york.ac.uk
     IdentityFile ~/.ssh/id_rsa
     User cp872
 
+Host *.york.ac.uk !ssh.york.ac.uk
+    ProxyCommand ssh ssh.york.ac.uk -W %h:%p
+
 Host csteach0
     HostName csteach0.york.ac.uk
     ProxyCommand ssh ssh.york.ac.uk -W %h:%p
