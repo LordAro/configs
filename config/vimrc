@@ -72,6 +72,7 @@ command! SyntasticPython3 let g:syntastic_python_python_exec = g:syntastic_pytho
 
 autocmd BufWinEnter *.py call Parse_Python_Shebang()
 
+let g:syntastic_go_checkers = ['go', 'govet', 'errcheck']
 " }}}
 let g:go_list_type = "quickfix"
 
