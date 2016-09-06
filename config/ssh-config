@@ -26,7 +26,7 @@ Host csteach1
     HostName csteach1.york.ac.uk
     User cp872
 
-# URY
+# URY notables
 
 Host urybsod
     HostName urybsod.york.ac.uk
@@ -35,26 +35,6 @@ Host urybsod
 
 Host ury
     HostName ury.york.ac.uk
-    ProxyCommand ssh ssh.york.ac.uk -W %h:%p
-    User lordaro
-
-Host uryfs1
-    HostName uryfs1.york.ac.uk
-    ProxyCommand ssh ssh.york.ac.uk -W %h:%p
-    User lordaro
-
-Host jukebox
-    Hostname jukebox.york.ac.uk
-    ProxyCommand ssh ssh.york.ac.uk -W %h:%p
-    User lordaro
-
-Host uryfw0
-    Hostname uryfw0.york.ac.uk
-    ProxyCommand ssh ssh.york.ac.uk -W %h:%p
-    User lordaro
-
-Host urystv
-    Hostname urystv.york.ac.uk
     ProxyCommand ssh ssh.york.ac.uk -W %h:%p
     User lordaro
 
