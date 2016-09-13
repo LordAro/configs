@@ -2,7 +2,9 @@
 URxvt*buffered: true
 URxvt*cursorBlink: true
 URxvt*underlineColor: yellow
-URxvt*font: xft:Source Code Pro for Powerline:size=10,xft:Source Code Pro:size=10,xft:Droid Sans Mono,xft:DejaVu Sans Mono,xft:Code2000,xft:Symbola,xft:Unifont,xft:Jomolhari
+!URxvt*font: xft:Anonymous Pro:size=11,xft:Droid Sans Mono:size=9,xft:Monospace,xft:DejaVu Sans Mono,xft:Code2000
+!URxvt*font: xft:Source\ Code\ Pro\ for\ Powerline:size=10,xft:Droid Sans Mono:size=9,xft:DejaVu Sans Mono,xft:Code2000
+URxvt*font: xft:Source\ Code\ Pro\ for\ Powerline:size=10,xft:Droid Sans Mono,xft:DejaVu Sans Mono,xft:DejaVu Sans,xft:Code2000,xft:Symbola,xft:Unifont,xft:Jomolhari
 URxvt.antialias: true
 URxvt.hinting: true
 URxvt.hintstyle: hintslight
@@ -11,14 +13,27 @@ URxvt*depth: 32
 URxvt*borderless: 1
 URxvt*scrollBar: false
 URxvt*loginShell: true
-Urxvt*secondaryScroll: true
+Urxvt*secondaryScroll:  true    # Enable Shift-PageUp/Down in screen
 URxvt*saveLines: 5000
+URxvt.perl-ext: default,url-select
+URxvt.keysym.C-i: perl:url-select:select_next
+URxvt.url-select.launcher: /usr/bin/xdg-open
+URxvt.url-select.underline: true
 
-! URL handlers
-URxvt.perl-ext:          default,matcher
-URxvt.keysym.C-i:        matcher:select
-URxvt.url-launcher:      xdg-open
-URxvt.matcher.underline: true
+rofi.width: 30
+!rofi.padding: 300
+!rofi.fullscreen: true
+rofi.fixed-num-lines: true
+rofi.bw: 0
+rofi.location: 0
+rofi.terminal: urxvt
+rofi.lines: 10
+rofi.eh: 1
+rofi.color-enabled: true
+rofi.color-window: argb:aa263238, argb:aa263238, #26a69a
+rofi.color-normal: argb:0263238, #eceff1, argb:0263238, #f4246b, #eceff1
+rofi.color-active: #fdf6e3, #268bd2, #eee8d5, #268bd2, #fdf6e3
+rofi.color-urgent: #fdf6e3, #dc322f, #eee8d5, #dc322f, #fdf6e3
 
 !! euphrasia v2 by bohoomil
 
