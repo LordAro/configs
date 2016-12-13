@@ -5,6 +5,11 @@
 [user]
 	name = Charles Pigott
 	email = charlespigott@googlemail.com
+[sendemail]
+	smtpEncryption = tls
+	smtpServer = smtp.gmail.com
+	smtpUser = charlespigott@googlemail.com
+	smtpServerPort = 587
 [push]
 	default = matching
 [apply]
@@ -33,3 +38,5 @@
 	st = status
 	stat = status
 	unstage = reset HEAD --
+[credential]
+	helper = store
