@@ -1,5 +1,7 @@
 Host *
+	ForwardAgent yes
     ServerAliveInterval 60
+	PermitLocalCommand yes
 
 # York
 
@@ -32,6 +34,28 @@ Host ury
     HostName ury.york.ac.uk
     ProxyCommand ssh ssh.york.ac.uk -W %h:%p
     User lordaro
+
+Host urystv
+	HostName urystv.york.ac.uk
+    ProxyCommand ssh ssh.york.ac.uk -W %h:%p
+    User lordaro
+
+Host uryfw0
+	Hostname uryfw0.york.ac.uk
+	LocalForward 3000 studio1:5900
+	LocalForward 3001 studio1guest:5900
+	LocalForward 3002 studio2:5900
+	LocalForward 3004 wallpc1:5900
+	LocalForward 3005 wallpc2:5900
+	LocalForward 3006 production:5900
+	LocalForward 4000 themis:3389
+	LocalForward 4001 studio1:3389
+	LocalForward 4002 studio2:3389
+	LocalForward 4004 wallpc1:3389
+	LocalForward 4005 wallpc2:3389
+	LocalForward 4006 production:3389
+	ProxyCommand ssh ssh.york.ac.uk -W %h:%p
+	User lordaro
 
 # Hacksoc
 
