@@ -13,6 +13,7 @@ if [ -f "$HOME/.bashrc_custom" ]; then
 fi
 
 export PATH=$HOME/bin:$PATH
+export EDITOR=vim
 
 ### Display magicks ###
 

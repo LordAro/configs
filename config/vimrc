@@ -171,6 +171,7 @@ set smartindent
 " Settings for other filetypes
 augroup configgroup
 	" Golang gets set by vim-go
+	autocmd Filetype ada setlocal tabstop=3 shiftwidth=3 expandtab
 	autocmd Filetype cucumber setlocal tabstop=2 shiftwidth=2 expandtab
 	autocmd Filetype html setlocal tabstop=2 shiftwidth=2 expandtab
 	autocmd Filetype javascript setlocal tabstop=2 shiftwidth=2 expandtab
