@@ -16,19 +16,21 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'kien/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'fatih/vim-go'
-Plug 'scrooloose/syntastic'
 Plug 'bling/vim-airline'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'tpope/vim-fugitive'
 Plug 'pearofducks/ansible-vim'
 Plug 'bogado/file-line'
 Plug 'rust-lang/rust.vim'
+Plug 'w0rp/ale'
 
 call plug#end()
 filetype plugin indent on
 
 " Plugin setup
 " Airline {{{
+let g:airline#extensions#ale#enabled = 1
+
 let g:airline#extensions#whitespace#enabled = 0
 let g:airline#extensions#whitespace#mixed_indent_algo = 1
 let g:airline_powerline_fonts = 1
@@ -38,50 +40,14 @@ let g:ctrlp_match_window = 'bottom,order:ttb'
 let g:ctrlp_switch_buffer = 0
 let g:ctrlp_working_path_mode = 0
 " }}}
-" Syntastic {{{
-let g:syntastic_always_populate_loc_list = 1
-
-let g:syntastic_cpp_compiler_options = "-std=c++14"
-let g:syntastic_cpp_no_include_search = 1
-
-let g:syntastic_python2_python_exe = "python2"
-let g:syntastic_python3_python_exe = "python3"
-let g:syntastic_python_default_version = g:syntastic_python3_python_exe
-let g:syntastic_python2_checkers = ['python', 'pyflakes', 'pylint']
-let g:syntastic_python3_checkers = ['python', 'pyflakes3', 'pylint3']
-
-" Syntastic horribleness to make it detect python version properly based on shebang
-function! Parse_Python_Shebang()
-    let line = getline(1)
-    if line =~# "\m^#!\s*[^ \t]*\<python2\=\>"
-        let g:syntastic_python_python_exec = g:syntastic_python2_python_exe
-        let g:syntastic_python_checkers = g:syntastic_python2_checkers
-    elseif line =~# "\m^#!\s*[^ \t]*\<python3\>"
-        let g:syntastic_python_python_exec = g:syntastic_python3_python_exe
-        let g:syntastic_python_checkers = g:syntastic_python3_checkers
-    else
-        let g:syntastic_python_python_exec = g:syntastic_python_default_version
-        let g:syntastic_python_checkers = g:syntastic_python_default_version =~# "\<python3$" ?
-            \ g:syntastic_python3_checkers : g:syntastic_python2_checkers
-    endif
-endfunction
-
-command! SyntasticPython2 let g:syntastic_python_python_exec = g:syntastic_python2_python_exe |
-    \ let g:syntastic_python_checkers = g:syntastic_python2_checkers
-command! SyntasticPython3 let g:syntastic_python_python_exec = g:syntastic_python3_python_exe |
-    \ let g:syntastic_python_checkers = g:syntastic_python3_checkers
-
-autocmd BufWinEnter *.py call Parse_Python_Shebang()
-
-let g:syntastic_go_checkers = ['go']
-let g:syntastic_tex_checkers = ['chktex']
-" }}}
+" vim-go {{{
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_fields = 1
 let g:go_highlight_types = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
+" }}}
 
 let g:rustfmt_autosave = 1
 
@@ -181,7 +147,7 @@ augroup configgroup
 	autocmd Filetype python setlocal expandtab
 	autocmd Filetype ruby setlocal tabstop=2 shiftwidth=2 expandtab
 	autocmd Filetype rust setlocal expandtab
-	autocmd Filetype tex setlocal tabstop=2 shiftwidth=2 expandtab
+	autocmd Filetype tex,latex,context,plaintex setlocal tabstop=2 shiftwidth=2 expandtab textwidth=80
 	autocmd Filetype yaml setlocal tabstop=2 shiftwidth=2 expandtab
 augroup END
 
