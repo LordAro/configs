@@ -16,6 +16,15 @@ fi
 
 export PATH=$HOME/bin:$PATH
 export EDITOR=vim
+export LESS='-R'
+
+if [ -z "${SCHROOT_UID}" ]; then
+alias grep="grep --color=auto --exclude=\*.pyc --exclude=\*.rtt-result --exclude=\*.ali \
+	--exclude-dir=.git --exclude-dir=.svn --exclude-dir=generated --exclude-dir=node_modules --exclude-dir=vendor"
+fi
+
+alias svndeepclean="svn cleanup --remove-ignored --remove-unversioned"
+alias valgrindfull="valgrind --track-origins=yes --leak-check=full"
 
 ### Display magicks ###
 
