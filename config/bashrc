@@ -12,6 +12,8 @@ if [ -f "$HOME/.bashrc_custom" ]; then
 	. $HOME/.bashrc_custom
 fi
 
+. $HOME/dotfiles/z/z.sh
+
 export PATH=$HOME/bin:$PATH
 export EDITOR=vim
 
