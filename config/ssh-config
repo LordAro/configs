@@ -1,68 +1,38 @@
-Host *
-	ForwardAgent yes
-    ServerAliveInterval 60
-	PermitLocalCommand yes
+# Me
 
-# York
+Host voyager
+	HostName voyager.lordaro.co.uk
 
-Host ssh.york.ac.uk
-    PubKeyAuthentication yes
-    IdentityFile ~/.ssh/id_rsa
-    User cp872
-
-Host *.york.ac.uk !ssh.york.ac.uk
-    ProxyCommand ssh ssh.york.ac.uk -W %h:%p
-
-Host csteach0
-    HostName csteach0.york.ac.uk
-    ProxyCommand ssh ssh.york.ac.uk -W %h:%p
-    User cp872
-
-# Gateway
-Host csteach1
-    HostName csteach1.york.ac.uk
-    User cp872
-
-# URY notables
-
-Host urybsod
-    HostName urybsod.york.ac.uk
-    ProxyCommand ssh ssh.york.ac.uk -W %h:%p
-    User lordaro
-
-Host ury
-    HostName ury.york.ac.uk
-    ProxyCommand ssh ssh.york.ac.uk -W %h:%p
-    User lordaro
-
-Host urystv
-	HostName urystv.york.ac.uk
-    ProxyCommand ssh ssh.york.ac.uk -W %h:%p
-    User lordaro
+# URY
 
 Host uryfw0
 	Hostname uryfw0.york.ac.uk
-	LocalForward 3000 studio1:5900
-	LocalForward 3001 studio1guest:5900
+	LocalForward 3001 studio1:5900
 	LocalForward 3002 studio2:5900
-	LocalForward 3004 wallpc1:5900
-	LocalForward 3005 wallpc2:5900
+	LocalForward 3003 wallpc3:5900
+	LocalForward 3004 wallpc4:5900
 	LocalForward 3006 production:5900
-	LocalForward 4000 themis:3389
 	LocalForward 4001 studio1:3389
 	LocalForward 4002 studio2:3389
-	LocalForward 4004 wallpc1:3389
-	LocalForward 4005 wallpc2:3389
+	LocalForward 4003 wallpc3:3389
+	LocalForward 4004 wallpc4:3389
 	LocalForward 4006 production:3389
-	ProxyCommand ssh ssh.york.ac.uk -W %h:%p
-	User lordaro
+	ProxyCommand ssh lordaro.co.uk -W localhost:1350
+
+Host urybsod ury dolby urystv
+	Hostname %h.york.ac.uk
+    ProxyCommand ssh uryfw0 -W %h:%p
 
 # Hacksoc
 
 Host runciman
     HostName runciman.hacksoc.org
-    User lordaro
 
 Host klaxon
     HostName klaxon.hacksoc.org
-    User lordaro
+
+Host *
+	ForwardAgent yes
+    ServerAliveInterval 60
+	PermitLocalCommand yes
+	User lordaro

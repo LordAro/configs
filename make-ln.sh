@@ -30,11 +30,7 @@ done
 ## Other files ##
 
 mkdir -p $HOME/.ssh
-if [ -z "`grep york /etc/resolv.conf`" ]; then
-    $LN_CMD $dir/config/ssh-config $HOME/.ssh/config
-else
-    $LN_CMD $dir/config/ssh-config-yk $HOME/.ssh/config
-fi
+$LN_CMD $dir/config/ssh-config $HOME/.ssh/config
 
 if cmd_exists xrdb; then
     $LN_CMD $dir/config/Xresources $HOME/.Xresources
