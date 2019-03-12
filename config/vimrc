@@ -106,8 +106,9 @@ set ffs=unix,dos,mac
 " UI {{{
 set so=7
 
+set wildmode=longest,list,full " Imitate bash completion style
 set wildmenu " visual autocomplete for commands
-set wildignore=*.o,*~,*.pyc
+set wildignore=*.o,*~,*.pyc,*.ali
 
 set ruler
 set showcmd " Show command in bottom bar
@@ -157,6 +158,10 @@ if v:version >= 703
     set colorcolumn=+1
 endif
 
+augroup filetypedetect
+	au BufRead,BufNewFile *.rtt setfiletype perl
+augroup END
+
 " }}}
 " Identing {{{
 set smarttab " Tabs are best indent
@@ -177,6 +182,7 @@ augroup configgroup
 	autocmd Filetype javascript setlocal tabstop=2 shiftwidth=2 expandtab
 	autocmd Filetype json setlocal tabstop=2 shiftwidth=2 expandtab
 	autocmd Filetype lua setlocal expandtab
+	autocmd Filetype perl setlocal tabstop=3 shiftwidth=3 expandtab
 	autocmd Filetype php setlocal expandtab
 	autocmd Filetype python setlocal expandtab
 	autocmd Filetype ruby setlocal tabstop=2 shiftwidth=2 expandtab
