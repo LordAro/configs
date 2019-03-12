@@ -1,3 +1,6 @@
 [submodule "config/vim/vim-plug"]
 	path = config/vim/vim-plug
 	url = https://github.com/junegunn/vim-plug.git
+[submodule "z"]
+	path = z
+	url = https://github.com/rupa/z
