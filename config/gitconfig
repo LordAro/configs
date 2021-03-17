@@ -38,5 +38,3 @@
 	st = status
 	stat = status
 	unstage = reset HEAD --
-[credential]
-	helper = store
